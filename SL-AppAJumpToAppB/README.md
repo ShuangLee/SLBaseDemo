@@ -8,10 +8,11 @@
 假设现在有AppA和AppB两个应用，现在需要从AppA跳转到AppB中。
 #### 2.1. AppA -> AppB
 1. 设置AppB的URL Schemes为AppB。
+
 ![设置AppB的URL Schemes为AppB](http://ww2.sinaimg.cn/large/987b958agw1f94b65kxnuj20yg0jvq8y.jpg)
 2. 在AppA中添加一个用来点击跳转的Button，并监听点击事件，添加跳转代码。
 
-```
+```Objective-C
 - (IBAction)fromAppAJumpToAppB:(id)sender {
     // 1. 获取AppB的URL Scheme
     NSURL *appBURL = [NSURL URLWithString:@"AppB://"];
