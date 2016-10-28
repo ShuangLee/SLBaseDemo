@@ -8,10 +8,12 @@
 假设现在有AppA和AppB两个应用，现在需要从AppA跳转到AppB中。
 #### 2.1. AppA -> AppB
 1. 设置AppB的URL Schemes为AppB。
+
 ![设置AppB的URL Schemes为AppB](http://ww2.sinaimg.cn/large/987b958agw1f94b65kxnuj20yg0jvq8y.jpg)
+
 2. 在AppA中添加一个用来点击跳转的Button，并监听点击事件，添加跳转代码。
 
-```
+```Objective-C
 - (IBAction)fromAppAJumpToAppB:(id)sender {
     // 1. 获取AppB的URL Scheme
     NSURL *appBURL = [NSURL URLWithString:@"AppB://"];
@@ -37,7 +39,7 @@
 
 1. 假定在AppB中有两个页面Page1和Page2。在应用程序AppA中添加两个用来点击跳转的Button，一个跳转到Page1，一个跳转到Page2，并监听点击事件，添加跳转代码。
 
-```
+```Objective-C
 - (IBAction)jumpToAppBPage1:(id)sender {
     // 1. 获取AppB的URL Scheme
     NSURL *appBURL = [NSURL URLWithString:@"AppB://Page1"];
@@ -68,7 +70,7 @@
 ```
 2. 在应用AppB中通过AppDelegate监听跳转，进行判断，执行不同页面的跳转
 
-```
+```Objective-C
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     // 1.获取导航栏控制器
     UINavigationController *rootNav = (UINavigationController *)self.window.rootViewController;
